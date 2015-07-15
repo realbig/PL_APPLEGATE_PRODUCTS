@@ -65,7 +65,7 @@ class AGProducts_Products_CPT {
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'menu_position'      => null,
-			'supports'           => array( 'title' )
+			'supports'           => array( 'title', 'editor' )
 		);
 
 		register_post_type( $this->post_type, $args );
@@ -93,6 +93,7 @@ class AGProducts_Products_CPT {
 
 		register_taxonomy( 'product-category', 'product', array(
 			'labels' => $labels,
+			'hierarchical' => true,
 		) );
 
 		$label_single = 'Bucket';
