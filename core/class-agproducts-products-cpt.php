@@ -118,6 +118,7 @@ class AGProducts_Products_CPT {
 
 		register_taxonomy( 'product-bucket', 'product', array(
 			'labels' => $labels,
+			'hierarchical' => true,
 		) );
 	}
 
