@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: AG Products
- * Description: Description.
+ * Plugin Name: Applegate Products
+ * Description: Creates the "Products" custom post type.
  * Author: Joel Worsham
  * Author URI: http://realbigmarketing.com
  * Version: 0.1.0
@@ -27,7 +27,7 @@ define( 'AGPRODUCTS_URL', plugins_url( '', __FILE__ ) );
  */
 class AGPRODUCTS {
 
-	public $primary_page;
+	public $products;
 
 	private function __clone() { }
 
@@ -70,6 +70,9 @@ class AGPRODUCTS {
 	 * @since 0.1.0
 	 */
 	public function require_necessities() {
+
+		require_once __DIR__ . '/core/class-agproducts-products-cpt.php';
+		$this->products = new AGProducts_Products_CPT();
 	}
 
 	/**

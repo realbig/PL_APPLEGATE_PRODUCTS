@@ -1,6 +1,6 @@
 <?php
 /**
- * Creates and manages the slides CPT.
+ * Creates and manages the products CPT.
  *
  * @since      0.1.0
  *
@@ -12,11 +12,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
-class MyTheme_Document_CPT {
+class AGProducts_Products_CPT {
 
-	private $post_type = 'posttype';
-	private $label_singular = 'PostType';
-	private $label_plural = 'PostTypes';
+	private $post_type = 'product';
+	private $label_singular = 'Product';
+	private $label_plural = 'Products';
+	private $icon = 'cart';
 
 	private $meta_fields = array();
 
@@ -59,7 +60,7 @@ class MyTheme_Document_CPT {
 			'show_ui'            => true,
 			'show_in_menu'       => true,
 			'query_var'          => true,
-			'menu_icon'          => 'dashicons-format-gallery',
+			'menu_icon'          => 'dashicons-' . $this->icon,
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
@@ -68,6 +69,55 @@ class MyTheme_Document_CPT {
 		);
 
 		register_post_type( $this->post_type, $args );
+
+		// Taxonomies
+		$label_single = 'Category';
+		$label_plural = 'Categories';
+
+		$labels = array(
+			'name'               => $label_plural,
+			'singular_name'      => $label_single,
+			'menu_name'          => $label_plural,
+			'name_admin_bar'     => $label_single,
+			'add_new'            => "Add New",
+			'add_new_item'       => "Add New $label_single",
+			'new_item'           => "New $label_single",
+			'edit_item'          => "Edit $label_single",
+			'view_item'          => "View $label_single",
+			'all_items'          => "All $label_plural",
+			'search_items'       => "Search $label_plural",
+			'parent_item_colon'  => "Parent $label_plural:",
+			'not_found'          => "No $label_plural found.",
+			'not_found_in_trash' => "No $label_plural found in Trash.",
+		);
+
+		register_taxonomy( 'product-category', 'product', array(
+			'labels' => $labels,
+		) );
+
+		$label_single = 'Bucket';
+		$label_plural = 'Buckets';
+
+		$labels = array(
+			'name'               => $label_plural,
+			'singular_name'      => $label_single,
+			'menu_name'          => $label_plural,
+			'name_admin_bar'     => $label_single,
+			'add_new'            => "Add New",
+			'add_new_item'       => "Add New $label_single",
+			'new_item'           => "New $label_single",
+			'edit_item'          => "Edit $label_single",
+			'view_item'          => "View $label_single",
+			'all_items'          => "All $label_plural",
+			'search_items'       => "Search $label_plural",
+			'parent_item_colon'  => "Parent $label_plural:",
+			'not_found'          => "No $label_plural found.",
+			'not_found_in_trash' => "No $label_plural found in Trash.",
+		);
+
+		register_taxonomy( 'product-bucket', 'product', array(
+			'labels' => $labels,
+		) );
 	}
 
 	function _post_messages( $messages ) {
