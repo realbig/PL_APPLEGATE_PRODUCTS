@@ -4,7 +4,7 @@
  * Description: Creates the "Products" custom post type.
  * Author: Joel Worsham
  * Author URI: http://realbigmarketing.com
- * Version: 0.2.1
+ * Version: 0.2.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define plugin constants
-define( 'AGPRODUCTS_VERSION', '0.2.1' );
+define( 'AGPRODUCTS_VERSION', '0.2.2' );
 define( 'AGPRODUCTS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'AGPRODUCTS_URL', plugins_url( '', __FILE__ ) );
 
