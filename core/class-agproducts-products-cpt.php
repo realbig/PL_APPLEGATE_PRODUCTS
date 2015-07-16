@@ -55,8 +55,10 @@ class AGProducts_Products_CPT {
 
 		$args = array(
 			'labels'             => $labels,
-			'public'             => false,
 			'publicly_queryable' => true,
+			'rewrite' => array(
+				'slug' => 'products',
+			),
 			'show_ui'            => true,
 			'show_in_menu'       => true,
 			'query_var'          => true,
@@ -94,6 +96,7 @@ class AGProducts_Products_CPT {
 		register_taxonomy( 'product-category', 'product', array(
 			'labels' => $labels,
 			'hierarchical' => true,
+			'show_admin_column' => true,
 		) );
 
 		$label_single = 'Bucket';
@@ -119,6 +122,7 @@ class AGProducts_Products_CPT {
 		register_taxonomy( 'product-bucket', 'product', array(
 			'labels' => $labels,
 			'hierarchical' => true,
+			'show_admin_column' => true,
 		) );
 	}
 
