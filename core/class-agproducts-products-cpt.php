@@ -66,7 +66,6 @@ class AGProducts_Products_CPT {
 			'capability_type'    => 'post',
 			'has_archive'        => true,
 			'hierarchical'       => false,
-			'menu_position'      => null,
 			'supports'           => array( 'title', 'editor' )
 		);
 
