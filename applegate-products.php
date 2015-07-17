@@ -12,20 +12,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define plugin constants
-define( 'AGPRODUCTS_VERSION', '1.0.0' );
-define( 'AGPRODUCTS_DIR', plugin_dir_path( __FILE__ ) );
-define( 'AGPRODUCTS_URL', plugins_url( '', __FILE__ ) );
+define( 'APPLEGATEPRODUCTS_VERSION', '1.0.0' );
+define( 'APPLEGATEPRODUCTS_DIR', plugin_dir_path( __FILE__ ) );
+define( 'APPLEGATEPRODUCTS_URL', plugins_url( '', __FILE__ ) );
 
 /**
- * Class AGPRODUCTS
+ * Class ApplegateProducts
  *
  * Initiates the plugin.
  *
  * @since   0.1.0
  *
- * @package AGPRODUCTS
+ * @package ApplegateProducts
  */
-class AGPRODUCTS {
+class ApplegateProducts {
 
 	public $products;
 
@@ -40,7 +40,7 @@ class AGPRODUCTS {
 	 *
 	 * @staticvar Singleton $instance The *Singleton* instances of this class.
 	 *
-	 * @return AGPRODUCTS The *Singleton* instance.
+	 * @return ApplegateProducts The *Singleton* instance.
 	 */
 	public static function getInstance() {
 
@@ -71,8 +71,8 @@ class AGPRODUCTS {
 	 */
 	public function require_necessities() {
 
-		require_once __DIR__ . '/core/class-agproducts-products-cpt.php';
-		$this->products = new AGProducts_Products_CPT();
+		require_once __DIR__ . '/core/class-applegate-products-cpt.php';
+		$this->products = new ApplegateProducts_CPT();
 	}
 
 	/**
@@ -98,5 +98,5 @@ class AGPRODUCTS {
 	}
 }
 
-require_once __DIR__ . '/core/agproducts-functions.php';
-AGPRODUCTS();
+require_once __DIR__ . '/core/applegate-products-functions.php';
+APPLEGATEPRODUCTS();

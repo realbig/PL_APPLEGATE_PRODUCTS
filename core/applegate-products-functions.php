@@ -4,8 +4,8 @@
  *
  * @since      0.1.0
  *
- * @package    AGProducts
- * @subpackage AGProducts/core
+ * @package    ApplegateProducts
+ * @subpackage ApplegateProducts/core
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,8 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 0.1.0
  *
- * @return AGProducts
+ * @return ApplegateProducts
  */
-function AGPRODUCTS() {
-	return AGProducts::getInstance();
+function APPLEGATEPRODUCTS() {
+	return ApplegateProducts::getInstance();
 }

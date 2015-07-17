@@ -4,15 +4,15 @@
  *
  * @since      0.1.0
  *
- * @package    MyTheme
- * @subpackage MyTheme/core
+ * @package    ApplegateProducts
+ * @subpackage ApplegateProducts/core
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
-class AGProducts_Products_CPT {
+class ApplegateProducts_CPT {
 
 	private $post_type = 'product';
 	private $label_singular = 'Product';
