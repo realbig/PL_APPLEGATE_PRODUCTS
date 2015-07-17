@@ -64,6 +64,7 @@ class AGProducts_Products_CPT {
 			'query_var'          => true,
 			'menu_icon'          => 'dashicons-' . $this->icon,
 			'capability_type'    => 'post',
+			'menu_position' => 58.1,
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'supports'           => array( 'title', 'editor' )
