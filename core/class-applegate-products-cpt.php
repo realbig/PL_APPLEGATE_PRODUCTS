@@ -98,32 +98,6 @@ class ApplegateProducts_CPT {
 			'hierarchical' => true,
 			'show_admin_column' => true,
 		) );
-
-		$label_single = 'Bucket';
-		$label_plural = 'Buckets';
-
-		$labels = array(
-			'name'               => $label_plural,
-			'singular_name'      => $label_single,
-			'menu_name'          => $label_plural,
-			'name_admin_bar'     => $label_single,
-			'add_new'            => "Add New",
-			'add_new_item'       => "Add New $label_single",
-			'new_item'           => "New $label_single",
-			'edit_item'          => "Edit $label_single",
-			'view_item'          => "View $label_single",
-			'all_items'          => "All $label_plural",
-			'search_items'       => "Search $label_plural",
-			'parent_item_colon'  => "Parent $label_plural:",
-			'not_found'          => "No $label_plural found.",
-			'not_found_in_trash' => "No $label_plural found in Trash.",
-		);
-
-		register_taxonomy( 'product-bucket', 'product', array(
-			'labels' => $labels,
-			'hierarchical' => true,
-			'show_admin_column' => true,
-		) );
 	}
 
 	function _post_messages( $messages ) {
