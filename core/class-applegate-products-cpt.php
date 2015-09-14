@@ -20,7 +20,7 @@ class ApplegateProducts_CPT {
 	private $icon = 'cart';
 
 	private $meta_fields = array(
-		'_applegate_bucket',
+		'applegate_buckets',
 	);
 
 	function __construct() {
@@ -143,7 +143,7 @@ class ApplegateProducts_CPT {
 
 		add_meta_box(
 			'bucket',
-			'Bucket',
+			'Buckets',
 			array( $this, '_bucket_mb' ),
 			'product',
 			'side'
@@ -154,13 +154,13 @@ class ApplegateProducts_CPT {
 
 		wp_nonce_field( 'applegate_save_product', 'applegate_product_nonce' );
 
-		$buckets = get_post_meta( $post->ID, '_applegate_bucket', true );
+		$buckets = get_post_meta( $post->ID, 'applegate_buckets', true );
 
 		if ( function_exists( 'get_buckets' ) ) {
 			foreach ( get_buckets() as $bucket_ID => $bucket ) {
 				?>
 				<label>
-					<input type="checkbox" name="_applegate_bucket[]" value="<?php echo $bucket_ID; ?>"
+					<input type="checkbox" name="applegate_buckets[]" value="<?php echo $bucket_ID; ?>"
 						<?php echo in_array( $bucket_ID, $buckets ) ? 'checked' : ''; ?> />
 					<?php echo $bucket['title']; ?>
 				</label>
