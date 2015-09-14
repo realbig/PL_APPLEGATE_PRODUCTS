@@ -19,7 +19,9 @@ class ApplegateProducts_CPT {
 	private $label_plural = 'Products';
 	private $icon = 'cart';
 
-	private $meta_fields = array();
+	private $meta_fields = array(
+		'_applegate_bucket',
+	);
 
 	function __construct() {
 
@@ -56,7 +58,7 @@ class ApplegateProducts_CPT {
 		$args = array(
 			'labels'             => $labels,
 			'publicly_queryable' => true,
-			'rewrite' => array(
+			'rewrite'            => array(
 				'slug' => 'products',
 			),
 			'show_ui'            => true,
@@ -64,7 +66,7 @@ class ApplegateProducts_CPT {
 			'query_var'          => true,
 			'menu_icon'          => 'dashicons-' . $this->icon,
 			'capability_type'    => 'post',
-			'menu_position' => 58.1,
+			'menu_position'      => 58.1,
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'supports'           => array( 'title', 'editor' )
@@ -94,8 +96,8 @@ class ApplegateProducts_CPT {
 		);
 
 		register_taxonomy( 'product-category', 'product', array(
-			'labels' => $labels,
-			'hierarchical' => true,
+			'labels'            => $labels,
+			'hierarchical'      => true,
 			'show_admin_column' => true,
 		) );
 	}
@@ -138,15 +140,43 @@ class ApplegateProducts_CPT {
 	}
 
 	function _add_meta_boxes() {
+
+		add_meta_box(
+			'bucket',
+			'Bucket',
+			array( $this, '_bucket_mb' ),
+			'product',
+			'side'
+		);
+	}
+
+	function _bucket_mb( $post ) {
+
+		wp_nonce_field( 'applegate_save_product', 'applegate_product_nonce' );
+
+		$buckets = get_post_meta( $post->ID, '_applegate_bucket', true );
+
+		if ( function_exists( 'get_buckets' ) ) {
+			foreach ( get_buckets() as $bucket_ID => $bucket ) {
+				?>
+				<label>
+					<input type="checkbox" name="_applegate_bucket[]" value="<?php echo $bucket_ID; ?>"
+						<?php echo in_array( $bucket_ID, $buckets ) ? 'checked' : ''; ?> />
+					<?php echo $bucket['title']; ?>
+				</label>
+				<br/>
+				<?php
+			}
+		}
 	}
 
 	function _save_meta( $post_ID ) {
 
-		if ( ! isset( $_POST['slide_image_nonce_save'] ) ) {
+		if ( ! isset( $_POST['applegate_product_nonce'] ) ) {
 			return;
 		}
 
-		if ( ! wp_verify_nonce( $_POST['slide_image_nonce_save'], 'slide_image_nonce' ) ) {
+		if ( ! wp_verify_nonce( $_POST['applegate_product_nonce'], 'applegate_save_product' ) ) {
 			return;
 		}
 
