@@ -58,9 +58,6 @@ class ApplegateProducts_CPT {
 		$args = array(
 			'labels'             => $labels,
 			'publicly_queryable' => true,
-			'rewrite'            => array(
-				'slug' => 'products',
-			),
 			'show_ui'            => true,
 			'show_in_menu'       => true,
 			'query_var'          => true,
