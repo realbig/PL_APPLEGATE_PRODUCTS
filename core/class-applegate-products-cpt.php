@@ -67,7 +67,7 @@ class ApplegateProducts_CPT {
 			'menu_icon'          => 'dashicons-' . $this->icon,
 			'capability_type'    => 'post',
 			'menu_position'      => 58.1,
-			'has_archive'        => true,
+			'has_archive'        => false,
 			'hierarchical'       => false,
 			'supports'           => array( 'title', 'editor' )
 		);
